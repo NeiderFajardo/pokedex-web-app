@@ -8,5 +8,7 @@ import (
 
 func init() {
 	beego.Router("/", &controllers.MainController{})
-	beego.Router("/allpokemons", &controllers.PokemonController{})
+	beego.Router("/pokemon", &controllers.PokemonController{}, "get:GetPokemon")
+	beego.Router("/pokemon/gen", &controllers.PokemonController{}, "get:GetGeneracion")
+
 }
