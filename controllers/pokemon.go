@@ -1,26 +1,27 @@
 package controllers
 
 import (
-	"fmt"
 	"pokedex-web-app/helpers"
 
 	"github.com/astaxie/beego"
 )
 
+// PokemonController ...
 type PokemonController struct {
 	beego.Controller
 }
 
+// GetPokemon ...
 // @router /pokemon [get]
 func (p *PokemonController) GetPokemon() {
 	nom := p.GetString("nombre")
-	fmt.Println("ENTRA:", nom)
 	pokemon := helpers.ObtenerPokemon(nom)
 
 	p.Data["json"] = pokemon
 	p.ServeJSON()
 }
 
+// GetGeneracion ...
 func (p *PokemonController) GetGeneracion() {
 	id := p.GetString("id")
 
